@@ -59,14 +59,22 @@ export default {
         results: Array
     },
     data: () => ({
-        onlyCovid: false
+        onlyCovid: false,
     }),
     computed:{
         count(){
-            return this.results.length
+            if(!this.onlyCovid) return this.results.length
+            else return this.covidPaperCount
         },
         loading(){
             return this.$store.state.loading
+        },
+        covidPaperCount(){
+            let num = 0
+            this.results.forEach((result) => {
+                if(result._source.is_covid == 'True') num++
+            })
+            return num
         }
     },
     methods:{
