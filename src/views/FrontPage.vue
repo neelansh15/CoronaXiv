@@ -21,10 +21,10 @@
                     <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
-            <v-col cols="6">
+            <!-- <v-col cols="6">
                 <h1>2D Representation</h1>
                 <Chart />
-            </v-col>
+            </v-col> -->
           </v-row>
       </v-container>
   </v-main>
@@ -32,13 +32,13 @@
 
 <script>
 import PaperCard from '../components/PaperCard'
-import Chart from './Chart'
+// import Chart from './Chart'
 
 export default {
     name: 'FrontPage',
     components:{
-        PaperCard,
-        Chart
+        PaperCard
+        // Chart
     },
     props:{
         results: Array
