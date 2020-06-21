@@ -51,7 +51,7 @@ export default {
     },
     data: () => ({
         searchString: "",
-        results: {test: "hey"}
+        results: {test: "Nice"}
     }),
     methods:{
         getData(){

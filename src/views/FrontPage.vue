@@ -11,6 +11,8 @@
             <v-col cols="6">
                 <h1>2D Representation</h1>
                 {{ results }}
+
+                <Chart />
             </v-col>
           </v-row>
       </v-container>
@@ -19,11 +21,13 @@
 
 <script>
 // import PaperCard from '../components/PaperCard'
+import Chart from './Chart'
 
 export default {
     name: 'FrontPage',
     components:{
         // PaperCard
+        Chart
     },
     props:{
         results: Object
@@ -58,7 +62,7 @@ export default {
         // ]
     }),
     mounted(){
-        console.log("Mounted")
+        console.log("Front Page Mounted")
     }
 }
 </script>
