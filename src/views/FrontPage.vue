@@ -2,10 +2,10 @@
   <v-main>
       <v-container>
           <v-row>
-            <v-col cols="12" md="6">
+            <!-- <v-col cols="12" md="6">
                 <h1>2D Representation</h1>
                 <Chart v-if="chartLoaded" :chartData = "chartData" :options = "options" />
-            </v-col>
+            </v-col> -->
 
             <v-col cols="12" md="6">
                 <h1>
@@ -18,8 +18,8 @@
                 </h1>
                 
                 <v-switch
-                    label="Only Covid Results"
-                    v-model="onlyCovid"
+                    label="Only Peer Reviewed"
+                    v-model="onlyPeer"
                 ></v-switch>
 
                 {{ !results.length ? "No results" : "" }}
@@ -38,7 +38,14 @@
 
 
                 <v-list v-else v-for="result in results" :key="result._id">
-                    <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
+                    <PaperCard 
+                        v-if="checkPeer(result._source.peer_reviewed)" 
+                        :title="result._source.title" 
+                        :content="result._source.excerpt" 
+                        :author ="result._source.authors" 
+                        :url="result._source.url"
+                        :score="result._source.score"
+                    />
                 </v-list>
             </v-col>
           </v-row>
@@ -48,24 +55,24 @@
 
 <script>
 import PaperCard from '../components/PaperCard'
-import Chart from './Chart'
+// import Chart from './Chart'
 
 export default {
     name: 'FrontPage',
     components:{
-        PaperCard,
-        Chart
+        PaperCard
+        // Chart
     },
     props:{
         results: Array
     },
     data: () => ({
-        onlyCovid: false,
+        onlyPeer: false,
         chartLoaded: true
     }),
     computed:{
         count(){
-            if(!this.onlyCovid) return this.results.length
+            if(!this.onlyPeer) return this.results.length
             else return this.covidPaperCount
         },
         loading(){
@@ -74,7 +81,7 @@ export default {
         covidPaperCount(){
             let num = 0
             this.results.forEach((result) => {
-                if(result._source.is_covid == 'True') num++
+                if(result._source.peer_reviewed == 'True') num++
             })
             return num
         },
@@ -111,9 +118,9 @@ export default {
         }
     },
     methods:{
-        checkCovid(status){
-            if(this.onlyCovid == false) return true
-            else if(this.onlyCovid == true && status == 'True') return true
+        checkPeer(status){
+            if(this.onlyPeer == false) return true
+            else if(this.onlyPeer == true && status == 'True') return true
             else return false
         }
     },

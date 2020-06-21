@@ -1,1 +1,5 @@
 dx.doi.org/{{doi}}
+
+:totalcount = "parseInt(result._source.cited_by_fbwalls_count) + parseInt(result._source.cited_by_posts_count)
+                        + parseInt(result._source.cited_by_tweeters_count) + parseInt(result._source.cited_by_wikipedia_count)
+                        + parseInt(result._source.readers_count) + 10"
