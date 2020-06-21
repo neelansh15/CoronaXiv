@@ -22,7 +22,7 @@
                 <div v-if="loading">
                     <v-row v-for="n in 3" :key="n" class="mb-2">
                         <v-col
-                            cols="12" md="8"
+                            cols="12" md="10"
                         >
                             <v-skeleton-loader
                                 type="card"
@@ -36,10 +36,10 @@
                     <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
-            <!-- <v-col cols="6">
+            <v-col cols="12" md="6">
                 <h1>2D Representation</h1>
-                <Chart />
-            </v-col> -->
+                <Chart v-if="chartLoaded" :chartData = "chartData" :options = "options" />
+            </v-col>
           </v-row>
       </v-container>
   </v-main>
@@ -47,19 +47,20 @@
 
 <script>
 import PaperCard from '../components/PaperCard'
-// import Chart from './Chart'
+import Chart from './Chart'
 
 export default {
     name: 'FrontPage',
     components:{
-        PaperCard
-        // Chart
+        PaperCard,
+        Chart
     },
     props:{
         results: Array
     },
     data: () => ({
         onlyCovid: false,
+        chartLoaded: true
     }),
     computed:{
         count(){
@@ -75,6 +76,37 @@ export default {
                 if(result._source.is_covid == 'True') num++
             })
             return num
+        },
+        chartData(){
+            return {
+                datasets:[{
+                    label: 'Covid19 Research Papers Scatter Dataset',
+                    data: [
+                        {
+                            x: -10,
+                            y: 0
+                        }, 
+                        {
+                            x: 0,
+                            y: 10
+                        }, 
+                        {
+                            x: 10,
+                            y: 5
+                        }
+                    ]
+                }]
+            }
+        },
+        options(){
+            return {
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom'
+                    }]
+                }
+            }
         }
     },
     methods:{
