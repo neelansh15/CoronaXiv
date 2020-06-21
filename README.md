@@ -46,11 +46,20 @@ In the current scenario, one would perform Google search in order to look for so
 <h3 align="center">CoronaXiv as a webapp:</h3>
 
 <div align="center">
-<h4 align="center">Home Page</h4>
-<img src="./screenshots/ss1.png" width=900px/>
+<h4 align="center">Example</h4>
+<img src="./screenshots/ss1.jpeg" width=900px/>
 <br>
 </div>
 
+<div align="center">
+<img src="./screenshots/ss2.jpeg" width=900px/>
+<br>
+</div>
+
+<div align="center">
+<img src="./screenshots/ss3.jpeg" width=900px/>
+<br>
+</div>
 ---
 
 
@@ -64,24 +73,26 @@ In the current scenario, one would perform Google search in order to look for so
 
 ### Tech Stack of this Project:
 
-* Frontend: Vue.js
+* Frontend: Vue.js - [Frontend can be found here](https://github.com/neelansh15/CoronaXiv) 
 * Backend: Python3
 * Framework: Flask, PyTorch
 * Machine Learning Model: K-means Clustering, Covid-BERT
-* Libraries: Available in [requirements.txt](https://github.com/arghyadeep99/CoronaXiv/blob/master/requirements.txt).
+* Libraries: Available in [requirements.txt](https://github.com/neelansh/CoronaXiv/blob/master/requirements.txt).
 
 ### To run the project:
 
-* [Fork](https://github.com/arghyadeep99/CoronaXiv) this Repository.
+* [Fork](https://github.com/neelansh15/CoronaXiv) this Repository.
+* Copy .env-example as .env
+* Update .env Environment Variables
 * Change into he directory in the terminal and run as:
-  -`pip3 install -r requirements.txt`
-  -`python3 manage.py runserver`
+  -`pip install -r requirements.txt`
+  -`flask run`
 * Open your web browser and enter the following URL:
-`localhost:8000`
+`localhost:5000`
 
 
 #### This project still has scope of development, so you can also contribute to this Project as follows:
-* [Fork](https://github.com/nachiketbhuta/exsports-analytics) this Repository.
+* [Fork](https://github.com/neelansh15/CoronaXiv) this Repository.
 * Clone your Fork on a different branch:
 	* `git clone -b <name-of-branch> https://github.com/arghyadeep99/CoronaXiv.git`
 * After adding any feature:
