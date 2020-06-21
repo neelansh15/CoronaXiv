@@ -6,7 +6,7 @@
                 <h1>Research Papers: </h1>
                 <!-- {{ results }} -->
                 <v-list v-for="result in results" :key="result._id">
-                    <PaperCard :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" />
+                    <PaperCard :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
             <v-col cols="6">
