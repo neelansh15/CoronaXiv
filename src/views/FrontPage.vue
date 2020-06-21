@@ -4,12 +4,13 @@
           <v-row>
             <v-col cols="6">
                 <h1>Research Papers: </h1>
-                <v-list v-for="result in results" :key="result.name">
+                <!-- <v-list v-for="result in results" :key="result.name">
                     <PaperCard :name="result.name" :content="result.content" :author ="result.author" />
-                </v-list>
+                </v-list> -->
             </v-col>
             <v-col cols="6">
                 <h1>2D Representation</h1>
+                {{ results }}
             </v-col>
           </v-row>
       </v-container>
@@ -17,41 +18,44 @@
 </template>
 
 <script>
-import PaperCard from '../components/PaperCard'
+// import PaperCard from '../components/PaperCard'
 
 export default {
     name: 'FrontPage',
     components:{
-        PaperCard
+        // PaperCard
+    },
+    props:{
+        results: Object
     },
     data: () => ({
-        results: [
-            {
-                name : "Covid Paper",
-                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                author: "Max Maxilian"
-            },
-            {
-                name : "Covid Paper",
-                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                author: "Max Maxilian"
-            },
-            {
-                name : "Covid Paper",
-                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                author: "Max Maxilian"
-            },
-            {
-                name : "Covid Paper",
-                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                author: "Max Maxilian"
-            },
-            {
-                name : "Covid Paper",
-                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-                author: "Max Maxilian"
-            },
-        ]
+        // results: [
+        //     {
+        //         name : "Covid Paper",
+        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+        //         author: "Max Maxilian"
+        //     },
+        //     {
+        //         name : "Covid Paper",
+        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+        //         author: "Max Maxilian"
+        //     },
+        //     {
+        //         name : "Covid Paper",
+        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+        //         author: "Max Maxilian"
+        //     },
+        //     {
+        //         name : "Covid Paper",
+        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+        //         author: "Max Maxilian"
+        //     },
+        //     {
+        //         name : "Covid Paper",
+        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+        //         author: "Max Maxilian"
+        //     },
+        // ]
     }),
     mounted(){
         console.log("Mounted")

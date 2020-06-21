@@ -18,12 +18,13 @@
             <v-text-field
                 dark
                 filled=""
+                v-model="searchString"
             ></v-text-field>
                 </v-col>
                 <v-col
                     cols="4"
                 >
-                <v-btn icon>
+                <v-btn @click="getData()" icon>
                     <v-icon large="">mdi-magnify</v-icon>
                 </v-btn>
                 </v-col>
@@ -33,18 +34,42 @@
 
       </v-app-bar>
 
-    <FrontPage />
+    <FrontPage :results = "results" />
 
   </v-app>
 </template>
 
 <script>
+import axios from 'axios'
+
 import FrontPage from './views/FrontPage'
 
 export default {
     name: 'App',
     components:{
         FrontPage
+    },
+    data: () => ({
+        searchString: "",
+        results: {test: "hey"}
+    }),
+    methods:{
+        getData(){
+            let url = this.$store.state.getURL
+
+            //Replace spaces in searchString with plus sign (+)
+            this.searchString = this.searchString.replace(" ", "+")
+            
+            let finalURL = url + this.searchString
+            
+            console.log(finalURL)
+
+            //Axios Get Request
+            axios.get(finalURL)
+            .then((response) => {
+                this.results = response
+            })
+        }
     }
 }
 </script>
