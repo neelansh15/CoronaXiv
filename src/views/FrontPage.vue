@@ -17,7 +17,19 @@
                     v-model="onlyCovid"
                 ></v-switch>
 
-                <v-list v-for="result in results" :key="result._id">
+                <div v-if="loading">
+                    <v-row v-for="n in 2" :key="n" class="mb-2">
+                        <v-col
+                            cols="12" md="8"
+                        >
+                            <v-skeleton-loader
+                                type="card"
+                            ></v-skeleton-loader>
+                        </v-col>
+                    </v-row>
+                </div>
+
+                <v-list v-else v-for="result in results" :key="result._id">
                     <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
@@ -49,6 +61,9 @@ export default {
     computed:{
         count(){
             return this.results.length
+        },
+        loading(){
+            return this.$store.state.loading
         }
     },
     methods:{

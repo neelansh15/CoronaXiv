@@ -54,7 +54,11 @@ export default {
         results: []
     }),
     methods:{
+        
         getData(){
+            // this.$store.state.loading = true
+            this.$store.dispatch('setLoading')
+
             let url = this.$store.state.getURL
 
             //Replace spaces in searchString with plus sign (+)
@@ -69,7 +73,9 @@ export default {
             .then((response) => {
                 this.results = response.data.data.hits.hits
                 console.log(response)
+                this.$store.dispatch('setNotLoading')
             })
+
         }
     }
 }
