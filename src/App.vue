@@ -16,13 +16,13 @@
                     cols="8"
                     md="6"
                 >
-            <v-text-field
-                dense
-                autofocus
-                dark
-                filled=""
-                v-model="searchString"
-            ></v-text-field>
+                    <v-text-field
+                        dense
+                        autofocus
+                        dark
+                        filled=""
+                        v-model="searchString"
+                    ></v-text-field>
                 </v-col>
                 <v-col
                     cols="2"
@@ -31,7 +31,6 @@
                         <v-icon>mdi-magnify</v-icon>
                     </v-btn>
                 </v-col>
-                    
             </v-row>
         </v-container>
 

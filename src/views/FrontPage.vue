@@ -20,7 +20,7 @@
                 {{ !results.length ? "No results" : "" }}
                 
                 <div v-if="loading">
-                    <v-row v-for="n in 2" :key="n" class="mb-2">
+                    <v-row v-for="n in 3" :key="n" class="mb-2">
                         <v-col
                             cols="12" md="8"
                         >
