@@ -51,7 +51,7 @@ export default {
     },
     data: () => ({
         searchString: "",
-        results: {test: "Nice"}
+        results: []
     }),
     methods:{
         getData(){
@@ -67,7 +67,8 @@ export default {
             //Axios Get Request
             axios.get(finalURL)
             .then((response) => {
-                this.results = response
+                this.results = response.data.data.hits.hits
+                console.log(response)
             })
         }
     }
