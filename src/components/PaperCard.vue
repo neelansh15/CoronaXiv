@@ -9,7 +9,7 @@
                 <br />
                 <b>Score:</b> {{ score || "0" }}
                 <br />
-                <b>Total Readers: </b> {{ totalcount }}
+                <!-- <b>Total Readers: </b> {{ totalcount }} -->
             </v-card-text>
 
             <v-card-actions>
@@ -27,7 +27,7 @@ export default {
         content: String,
         url: String,
         score: String,
-        totalcount: Number
+        // totalcount: Number
     },
     computed:{
         //Getting just one link from the links separated by a semicolon

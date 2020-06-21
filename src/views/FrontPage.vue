@@ -11,7 +11,7 @@
                 <h1>
                     Research Papers:
                     <v-chip
-                        color="primary"
+                        :color="(onlyPeer) ? 'primary lighten-1' : 'primary'"
                     >
                         Total: {{ count }}
                     </v-chip>
@@ -73,12 +73,12 @@ export default {
     computed:{
         count(){
             if(!this.onlyPeer) return this.results.length
-            else return this.covidPaperCount
+            else return this.peerReviewedPaperCount
         },
         loading(){
             return this.$store.state.loading
         },
-        covidPaperCount(){
+        peerReviewedPaperCount(){
             let num = 0
             this.results.forEach((result) => {
                 if(result._source.peer_reviewed == 'True') num++
