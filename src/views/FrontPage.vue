@@ -2,7 +2,7 @@
   <v-main>
       <v-container>
           <v-row>
-            <v-col cols="6">
+            <v-col cols="12" md="6">
                 <h1>
                     Research Papers:
                     <v-chip
