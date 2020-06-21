@@ -6,7 +6,7 @@
             <v-card-text> {{ content }} </v-card-text>
 
             <v-card-actions>
-                <v-btn :href="final_url" text>Link</v-btn>
+                <v-btn :href="final_url" target="_blank" color="primary" class="mx-2 mb-4">Visit</v-btn>
             </v-card-actions>
         </v-card>
     </div>

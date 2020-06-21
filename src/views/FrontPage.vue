@@ -17,6 +17,8 @@
                     v-model="onlyCovid"
                 ></v-switch>
 
+                {{ !results.length ? "No results" : "" }}
+                
                 <div v-if="loading">
                     <v-row v-for="n in 2" :key="n" class="mb-2">
                         <v-col
@@ -28,6 +30,7 @@
                         </v-col>
                     </v-row>
                 </div>
+
 
                 <v-list v-else v-for="result in results" :key="result._id">
                     <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />

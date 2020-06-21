@@ -10,23 +10,26 @@
 
         <v-spacer></v-spacer>
 
-        <v-container style="margin-top: 1.5em">
+        <v-container style="margin-top: 1.5em; float: right">
             <v-row>
                 <v-col
-                    cols="6"
+                    cols="8"
+                    md="6"
                 >
             <v-text-field
+                dense
+                autofocus
                 dark
                 filled=""
                 v-model="searchString"
             ></v-text-field>
                 </v-col>
                 <v-col
-                    cols="4"
+                    cols="2"
                 >
-                <v-btn @click="getData()" icon>
-                    <v-icon large="">mdi-magnify</v-icon>
-                </v-btn>
+                    <v-btn @click="getData()" icon>
+                        <v-icon>mdi-magnify</v-icon>
+                    </v-btn>
                 </v-col>
                     
             </v-row>
