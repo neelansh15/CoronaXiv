@@ -7,6 +7,7 @@
 
 <br>
 
+[![](https://img.shields.io/badge/Made_with-Vue-brightgreen?style=for-the-badge&logo=vue.js)](https://vuejs.org)
 [![](https://img.shields.io/badge/Made_with-Flask-red?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/en/1.1.x/)
 [![](https://img.shields.io/badge/Made_with-Python3-red?style=for-the-badge&logo=python)](https://www.python.org/ "Python3")
 [![](https://img.shields.io/badge/Made_with-ElasticSearch-red?style=for-the-badge)](https://www.elastic.co/)
