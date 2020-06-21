@@ -1,21 +1,28 @@
 <template>
   <v-main>
       <v-container>
-          <h1>Research Papers: </h1>
-          <v-list v-for="result in results" :key="result.name">
-              <Paper :name="result.name" :content="result.content" :author ="result.author" />
-          </v-list>
+          <v-row>
+            <v-col cols="6">
+                <h1>Research Papers: </h1>
+                <v-list v-for="result in results" :key="result.name">
+                    <PaperCard :name="result.name" :content="result.content" :author ="result.author" />
+                </v-list>
+            </v-col>
+            <v-col cols="6">
+                <h1>2D Representation</h1>
+            </v-col>
+          </v-row>
       </v-container>
   </v-main>
 </template>
 
 <script>
-import Paper from '../components/Paper'
+import PaperCard from '../components/PaperCard'
 
 export default {
     name: 'FrontPage',
     components:{
-        Paper
+        PaperCard
     },
     data: () => ({
         results: [
@@ -33,9 +40,22 @@ export default {
                 name : "Covid Paper",
                 content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
                 author: "Max Maxilian"
-            }
+            },
+            {
+                name : "Covid Paper",
+                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                author: "Max Maxilian"
+            },
+            {
+                name : "Covid Paper",
+                content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                author: "Max Maxilian"
+            },
         ]
-    })
+    }),
+    mounted(){
+        console.log("Mounted")
+    }
 }
 </script>
 
