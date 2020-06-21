@@ -3,10 +3,17 @@
       <v-container>
           <v-row>
             <v-col cols="6">
-                <h1>Research Papers: </h1>
+                <h1>
+                    Research Papers:
+                    <v-chip
+                        color="primary"
+                    >
+                        {{ count }}
+                    </v-chip>
+                </h1>
                 <!-- {{ results }} -->
                 <v-list v-for="result in results" :key="result._id">
-                    <PaperCard :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
+                    <PaperCard v-if="result._source.is_covid" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
             <v-col cols="6">
@@ -32,34 +39,13 @@ export default {
         results: Array
     },
     data: () => ({
-        // results: [
-        //     {
-        //         name : "Covid Paper",
-        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        //         author: "Max Maxilian"
-        //     },
-        //     {
-        //         name : "Covid Paper",
-        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        //         author: "Max Maxilian"
-        //     },
-        //     {
-        //         name : "Covid Paper",
-        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        //         author: "Max Maxilian"
-        //     },
-        //     {
-        //         name : "Covid Paper",
-        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        //         author: "Max Maxilian"
-        //     },
-        //     {
-        //         name : "Covid Paper",
-        //         content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        //         author: "Max Maxilian"
-        //     },
-        // ]
+        // count: 0
     }),
+    computed:{
+        count(){
+            return this.results.length
+        }
+    },
     mounted(){
         console.log("Front Page Mounted")
     }
