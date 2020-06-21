@@ -8,12 +8,17 @@
                     <v-chip
                         color="primary"
                     >
-                        {{ count }}
+                        Total: {{ count }}
                     </v-chip>
                 </h1>
-                <!-- {{ results }} -->
+                
+                <v-switch
+                    label="Only Covid Results"
+                    v-model="onlyCovid"
+                ></v-switch>
+
                 <v-list v-for="result in results" :key="result._id">
-                    <PaperCard v-if="result._source.is_covid" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
+                    <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
             </v-col>
             <v-col cols="6">
@@ -39,11 +44,18 @@ export default {
         results: Array
     },
     data: () => ({
-        // count: 0
+        onlyCovid: false
     }),
     computed:{
         count(){
             return this.results.length
+        }
+    },
+    methods:{
+        checkCovid(status){
+            if(this.onlyCovid == false) return true
+            else if(this.onlyCovid == true && status == 'True') return true
+            else return false
         }
     },
     mounted(){

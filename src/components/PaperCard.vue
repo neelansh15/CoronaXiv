@@ -6,7 +6,7 @@
             <v-card-text> {{ content }} </v-card-text>
 
             <v-card-actions>
-                <v-btn :href="url" text>Link</v-btn>
+                <v-btn :href="final_url" text>Link</v-btn>
             </v-card-actions>
         </v-card>
     </div>
@@ -19,6 +19,13 @@ export default {
         author: String,
         content: String,
         url: String
+    },
+    computed:{
+        //Getting just one link from the links separated by a semicolon
+        final_url(){
+            var semicolonIndex = this.url.indexOf(";")
+            return this.url.slice(0, semicolonIndex)
+        }
     }
 }
 </script>
