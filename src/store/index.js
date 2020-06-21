@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    getURL: "http://corona-xiv.herokuapp.com/?title="
+    getURL: "https://corona-xiv.herokuapp.com/?title="
   },
   mutations: {
   },
