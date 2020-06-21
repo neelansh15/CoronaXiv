@@ -22,6 +22,7 @@
                         dark
                         filled=""
                         v-model="searchString"
+                        placeholder="Search"
                     ></v-text-field>
                 </v-col>
                 <v-col

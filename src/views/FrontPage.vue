@@ -3,6 +3,11 @@
       <v-container>
           <v-row>
             <v-col cols="12" md="6">
+                <h1>2D Representation</h1>
+                <Chart v-if="chartLoaded" :chartData = "chartData" :options = "options" />
+            </v-col>
+
+            <v-col cols="12" md="6">
                 <h1>
                     Research Papers:
                     <v-chip
@@ -20,7 +25,7 @@
                 {{ !results.length ? "No results" : "" }}
                 
                 <div v-if="loading">
-                    <v-row v-for="n in 3" :key="n" class="mb-2">
+                    <v-row v-for="n in 3" :key="n" class="mb-4">
                         <v-col
                             cols="12" md="10"
                         >
@@ -35,10 +40,6 @@
                 <v-list v-else v-for="result in results" :key="result._id">
                     <PaperCard v-if="checkCovid(result._source.is_covid)" :title="result._source.title" :content="result._source.excerpt" :author ="result._source.authors" :url="result._source.url" />
                 </v-list>
-            </v-col>
-            <v-col cols="12" md="6">
-                <h1>2D Representation</h1>
-                <Chart v-if="chartLoaded" :chartData = "chartData" :options = "options" />
             </v-col>
           </v-row>
       </v-container>

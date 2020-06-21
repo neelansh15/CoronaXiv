@@ -1,12 +1,12 @@
 <template>
     <div>
-        <v-card>
+        <v-card class="pa-2">
             <v-card-title> {{ title }}</v-card-title>
-            <v-card-subtitle> {{ author }} </v-card-subtitle>
+            <v-card-subtitle class="font-weight-bold"> {{ author }} </v-card-subtitle>
             <v-card-text> {{ content }} </v-card-text>
 
             <v-card-actions>
-                <v-btn :href="final_url" target="_blank" color="primary" class="mx-2 mb-4">Visit</v-btn>
+                <v-btn title="Visit (Opens in a new tab)" :href="final_url" target="_blank" color="primary" class="mx-2 mb-4">Visit</v-btn>
             </v-card-actions>
         </v-card>
     </div>
